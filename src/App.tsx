@@ -1,12 +1,12 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { ThemeProvider } from "@material-ui/core/styles";
-import { Header } from "./components/Header";
-import { Home } from "./pages/Home";
-import { QuestionOne, ProblemOne } from "./pages/QuestionOne";
-import { QuestionTwo, ProblemTwo } from "./pages/QuestionTwo";
-import { QuestionThree, ProblemThree } from "./pages/QuestionThree";
-import { theme } from "./theme";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { ThemeProvider } from '@material-ui/core/styles';
+import { Header } from './components/Header';
+import { Home } from './pages/Home';
+import { QuestionOne, ProblemOne } from './pages/QuestionOne';
+import { QuestionTwo, ProblemTwo } from './pages/QuestionTwo';
+import { QuestionThree, ProblemThree } from './pages/QuestionThree';
+import { theme } from './theme';
 
 function App() {
   return (
@@ -14,25 +14,23 @@ function App() {
       <div
         className="App"
         style={{
-          position: "absolute",
-          height: "100%",
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
+          position: 'absolute',
+          height: '100%',
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+        }}>
         <Router>
           <Header />
           <div
             style={{
               flex: 1,
-              overflow: "auto",
-              height: "100%",
-              display: "flex",
-              verticalAlign: "middle",
-              justifyContent: "center",
-            }}
-          >
+              overflow: 'auto',
+              height: '100%',
+              display: 'flex',
+              verticalAlign: 'middle',
+              justifyContent: 'center',
+            }}>
             <Switch>
               <Route path="/questionOne">
                 <QuestionOne />

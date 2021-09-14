@@ -10,9 +10,9 @@ Please feel free to refactor any (and all) of the code in this project, in fact 
 
 Spend as much or as little time as you deem fit playing, solving and improving this playground.
 
-To start the test run ```yarn start``` this will spin up a local json server which can be found at
-```http://localhost:3001/example``` which will be used for question two. It will also spin up react app at ```http://localhost:3000```
+To start the test run `yarn start` this will spin up a local json server which can be found at
+`http://localhost:3001/example` which will be used for question two. It will also spin up react app at `http://localhost:3000`
 
 Questions can be reached in the React app, via the burger icon in the top left, and an error will be displayed in both the browser and in the browsers console.
 
-Currently there are no tests written for the questions, please feel free to add some if you have time. Tests can be run via ```yarn test```
+Currently there are no tests written for the questions, please feel free to add some if you have time. Tests can be run via `yarn test`

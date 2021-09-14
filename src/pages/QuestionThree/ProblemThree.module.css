@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.root {
+  width: 100%;
+}
+
+.inline {
+  display: inline;
+}
+
+.header {
+  font-weight: bold;
+  display: inline;
+  margin-right: 4px;
+}
+
+.label {
+  display: inline;
+}

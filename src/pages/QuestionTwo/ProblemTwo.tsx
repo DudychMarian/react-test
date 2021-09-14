@@ -1,69 +1,36 @@
-import React, { Component } from "react";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
-import { withStyles } from "@material-ui/core/styles";
+import React from 'react';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 
-import CircularProgress from "@material-ui/core/CircularProgress";
+import styles from './ProblemTwo.module.css';
 
-import { getCardDetails } from "./api";
-import styles from "./styles";
+export const ProblemTwo = () => {
+  const [info, setInfo] = React.useState<any[]>([]);
 
-class ProblemTwo extends Component<any, any> {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      title: null,
-      imgSrc: null,
-      body: "",
-      loading: true,
-    };
-    try {
-      // @ts-ignore
-      getCardDetails.then((data) => {
-        if (!data) {
-          throw new Error("No Data");
-        }
-        this.setState({
-          title: data.title,
-          imgSrc: data.imgSrc,
-          body: data.body,
-          loading: false,
-        });
+  React.useEffect(() => {
+    fetch('https://613fd6fa5cb9280017a11066.mockapi.io/example')
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        return setInfo(json);
       });
-    } catch (e) {
-      throw e;
-    }
-  }
-  render() {
-    const { classes } = this.props;
-    const { title, imgSrc, body, loading } = this.state;
-    if (loading) {
-      return (
-        <div className={classes.spinner}>
-          <CircularProgress />
-        </div>
-      );
-    }
-    return (
-      <div className={classes.container}>
-        <Card className={classes.card}>
-          <CardMedia className={classes.media} image={imgSrc} title={title} />
-          <CardContent className={classes.content}>
-            <Typography gutterBottom variant="h5" component="h2">
-              {title}
+  }, []);
+
+  return (
+    <div className={styles.container}>
+      {info.map((obj) => (
+        <Card className={styles.card}>
+          <img className={styles.media} src={obj.imgSrc} alt={obj.title} />
+          <CardContent className={styles.content}>
+            <Typography className={styles.header} gutterBottom variant="h5" component="h2">
+              {obj.title}
             </Typography>
-            <div
-              className={classes.body}
-              dangerouslySetInnerHTML={{ __html: body }}
-            />
+            <div className={styles.body} dangerouslySetInnerHTML={{ __html: obj.body }} />
           </CardContent>
         </Card>
-      </div>
-    );
-  }
-}
-
-// @ts-ignore
-export default withStyles(styles)(ProblemTwo);
+      ))}
+    </div>
+  );
+};
