@@ -5,16 +5,20 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import { v4 as uuidv4 } from 'uuid';
-
 import Divider from '@material-ui/core/Divider';
-// import { Android } from '@material-ui/icons';
-// import Pets from '@material-ui/icons/Pets';
-// import BugReport from '@material-ui/icons/BugReport';
 
 import styles from './ProblemThree.module.css';
 
-export const QuestionListItem = ({ name, species, description, Icon }: any) => {
+interface QuestionListItemProps {
+  name: string;
+  species: string;
+  description: string;
+  Icon: string;
+}
+
+export const QuestionListItem: React.FC<QuestionListItemProps> = ({ name, species, description, Icon }: any) => {
   const guid = uuidv4();
+
   return (
     <Fragment>
       <ListItem alignItems="flex-start">
@@ -28,18 +32,18 @@ export const QuestionListItem = ({ name, species, description, Icon }: any) => {
           secondary={
             <React.Fragment>
               <div>
-                <Typography variant="subtitle2" className={styles.header}>
+                <Typography component={'span'} variant="body1" className={styles.header}>
                   Description:
                 </Typography>
-                <Typography variant="body2" className={styles.label}>
+                <Typography component={'span'} variant="body2" className={styles.label}>
                   {description}
                 </Typography>
               </div>
               <div>
-                <Typography variant="subtitle2" className={styles.header}>
+                <Typography component={'span'} variant="body1" className={styles.header}>
                   Guid:
                 </Typography>
-                <Typography variant="body2" className={styles.label}>
+                <Typography component={'span'} variant="body2" className={styles.label}>
                   {guid}
                 </Typography>
               </div>
